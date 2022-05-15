@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Graphic Cards</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link
+            rel="stylesheet"
+            href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;700&family=Open+Sans:wght@300;400;500&family=Padauk&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,600&family=Roboto:wght@100;300;400;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --inter: 'Inter', sans-serif;
+            --opensans: 'Open Sans', sans-serif;
+            ---pad: 'Padauk', sans-serif;
+            --popins: 'Poppins', sans-serif;
+            --roboto: 'Roboto', sans-serif;
+        }
+
+        html {
+            font-size: 62.4%;
+        }
+
+        .max_width {
+            position: relative;
+            width: 100%;
+            max-height: 100vh;
+            height: 100vh;
+            background: url("../static/background.jpg");
+            background-position: center;
+            background-size: cover;
+            padding-left: 1rem;
+        }
+
+        .main_heading {
+            font-size: 6rem;
+            font-weight: 800;
+            font-family: var(--roboto);
+            margin: auto 0 2rem 0;
+            color: #76b900;
+        }
+
+        .inputField label {
+            font-size: 2rem;
+            color: #ffffff;
+            opacity: 0.8;
+            font-family: var(--opensans);
+            font-weight: 600;
+        }
+
+        .inputField input, select {
+            height: 4rem;
+            font-size: 2rem;
+            color: #2e2727;
+        }
+
+        .inputField option {
+            font-size: 1.5rem;
+            color: #000;
+
+        }
+
+        .sub-btn {
+            margin-top: 3rem;
+            padding: 1rem 6rem;
+            background: #76b900;
+            color: #fff;
+            font-size: 1.5rem;
+            font-family: var(--inter);
+            border: none;
+        }
+
+        .optional {
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+
+        .tooltip {
+            font-size: 1rem;
+            background: #76b900;
+
+        }
+
+        .showCard {
+            display: flex;
+            width: 100%;
+            height: 10rem;
+        }
+
+        .showCardContainer {
+            display: flex;
+            position: absolute;
+            width: 40%;
+            height: 40rem;
+            border-radius: 3rem;
+            background: #fff;
+            top: 50%;
+            left: 50%;
+            justify-content: space-around;
+            transform: translate(-50%, -50%);
+        }
+
+        .close {
+            font-weight: 900;
+            font-size: 2.5rem;
+            width: 2rem;
+            height: 2rem;
+            position: absolute;
+            right: 2rem;
+            top: 1rem;
+        }
+
+        .chart_spec {
+            font-size: 4rem;
+            font-weight: 800;
+            font-family: var(--roboto);
+            color: #76b900;
+        }
+
+        .cardContent {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .chart_sub {
+            font-size: 1.2rem;
+            font-family: var(--popins);
+            padding: 0rem 0 1.5rem 0;
+        }
+
+        .progressRate {
+            position: absolute;
+            margin-top: 0.2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: var(--inter);
+        }
+
+        .cardContent img {
+            width: 15rem;
+            height: 26rem;
+        }
+
+        .contentRight {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center
+        }
+
+        .card_heading {
+            margin-top: 1rem;
+            font-weight: 600;
+            font-size: 2rem;
+        }
+
+        .progress {
+            height: 2rem;
+        }
+
+        .card_price {
+            font-size: 1.5rem;
+            font-family: var(--opensans);
+        }
+    </style>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+          integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+<section class="root ">
+    <div class="max_width row gx-0">
+        <div class="main_heading" data-aos="fade-down" data-aos-easing="linear"
+             data-aos-duration="1000">
+            GET Your GPU Recommended
+        </div>
+        <div class="col-6 form formContainer" data-aos="fade-down" data-aos-easing="linear"
+             data-aos-duration="1000">
+            <form class="row g-3" method="post">
+                <div class="col-md-6 inputField">
+                    <label for="3dMark" class="form-label">3d Mark</label>
+                    <input type="text" class="form-control" id="3dMark" name="3dMark">
+                </div>
+                <div class="col-md-6 inputField">
+                    <label for="2dMark" class="form-label">2d Mark </label>
+                    <input type="text" class="form-control" id="2dMark" name="2dMark">
+                </div>
+                <div class="col-md-6 inputField">
+                    <label for="price" class="form-label">Price</label>
+                    <input type="text" class="form-control" id="price" name="price">
+                </div>
+                <div class="col-6 inputField">
+                    <label for="pp" class="form-label">Power Performance</label>
+                    <input type="text" class="form-control" id="pp" name="pp">
+                </div>
+                <div class="col-md-6 inputField">
+                    <label for="tdp" class="form-label">TDP
+                        <span class="optional">(Optional)</span></label>
+                    <input type="text" class="form-control" id="tdp" name="tdp">
+                </div>
+                <div class="col-6 inputField">
+                    <label for="gpuValue" class="form-label">Gpu Value <span class="optional">(Optional)</span></label>
+                    <input type="text" class="form-control" id="gpuValue" name="gpuValue">
+                </div>
+                <div class="col-md-6 inputField">
+                    <label for="testDate" class="form-label">Date <span class="optional">(Optional)</span></label>
+                    <select class="form-control" id="testDate" name="testDate">
+                        <option value="2009">2009</option>
+                        <option value="2010">2010</option>
+                        <option value="2011">2011</option>
+                        <option value="2012">2012</option>
+                        <option value="2013">2013</option>
+                        <option value="2014">2014</option>
+                        <option value="2015">2015</option>
+                        <option value="2016">2016</option>
+                        <option value="2017">2017</option>
+                        <option value="2018">2018</option>
+                        <option value="2019">2019</option>
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                    </select>
+                </div>
+                <div class="col-md-6 inputField">
+                    <label for="category" class="form-label">Category</label>
+                    <select name="category" id="category" class="inputField form-control">
+                        <option value="Desktop">Desktop</option>
+                        <option value="Workstation">Workstation</option>
+                        <option value="Mobile">Mobile</option>
+                    </select>
+                </div>
+
+                <div class="col-12">
+                    <input type="button" class="sub-btn" value="Submit">
+                </div>
+            </form>
+        </div>
+        <div class="showCardContainer " style="display: none">
+            <div class="close"><i class="far fa-times-circle"></i></div>
+            <div class="cardContent">
+                <div>
+                    <img src="../static/417WOuPADfL.jpg" alt="">
+                </div>
+                <div class="card_heading">RTX 3060</div>
+                <div class="card_price">Price $<span>2000</span></div>
+            </div>
+            <div class="contentRight">
+                <div class="chart_spec">Specifications</div>
+                <div class="chart_sub">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet animi at
+                </div>
+                <div class="chart">
+                    <div class="progressLabel">G3Dmark</div>
+                    <div class="progress">
+                        <div class="p_3dMark progress-bar progress-bar-striped progress-bar-animated bg-success"
+                             role="progressbar"
+                             aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+                        <div class="progressRate p_3dMarkLabel"></div>
+                    </div>
+                    <div class="progressLabel">G2Dmark</div>
+                    <div class="progress">
+                        <div class="p_2dMark progress-bar progress-bar-striped progress-bar-animated bg-success"
+                             role="progressbar"
+                             aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+                        <div class="progressRate p_2dMarkLabel"></div>
+
+                    </div>
+                    <div class="progressLabel">TDP</div>
+                    <div class="progress">
+                        <div class="p_tdp progress-bar progress-bar-striped progress-bar-animated bg-success"
+                             role="progressbar"
+                             aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+                        <div class="progressRate ptdpLabel"></div>
+                    </div>
+                    <div class="progressLabel">powerPerformance</div>
+                    <div class="progress">
+                        <div class="p_pp progress-bar progress-bar-striped progress-bar-animated bg-success"
+                             role="progressbar"
+                             aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+                        <div class="progressRate p_ppLabel"></div>
+
+                    </div>
+                    <div class="progressLabel">gpuValue</div>
+                    <div class="progress">
+                        <div class="p_gpuVal progress-bar progress-bar-striped progress-bar-animated bg-success"
+                             role="progressbar"
+                             aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+                        <div class="progressRate p_gpuLabel"></div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+</section>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+    $('.sub-btn').click(async function (e) {
+        $3dM = $('#3dMark').val();
+        $2dM = $('#2dMark').val();
+        $price = $('#price').val();
+        $pp = $('#pp').val();
+        $tdp = $('#tdp').val();
+        $gpuV = $('#gpuValue').val();
+        $date = $('#testDate').val();
+        $category = $('#category').val();
+        if ($3dM && $2dM && $price && $pp !== '') {
+            await $.post("http://127.0.0.1:5000/getRecommendation", {
+                Mark3d: $3dM,
+                Mark2d: $2dM,
+                price: $price,
+                pp: $pp,
+                tdp: $tdp,
+                gpuValue: $gpuV,
+                date: $date,
+                category: $category
+            }, function (data, status) {
+                console.log(data)
+                $('.showCardContainer').hide()
+                $('.card_heading').text(data['gpuName'])
+                $mark3 = data['G3Dmark'] / 30000 * 100
+                $('.p_3dMark').css('width', `${$mark3}%`)
+                $('.p_3dMarkLabel').text(data['G3Dmark'])
+                $mark2 = data['G2Dmark'] / 1120 * 100
+                $('.p_2dMark').css('width', `${$mark2}%`)
+                $('.p_2dMarkLabel').text(data['G2Dmark'])
+                $tdp = data['TDP'] / 500 * 100
+                $('.p_tdp').css('width', `${$tdp}%`)
+                $('.ptdpLabel').text(data['TDP'].toFixed(2))
+                $pp = data['powerPerformance'] / 210 * 100
+                $('.p_pp').css('width', `${$pp}%`)
+                $('.p_ppLabel').text(data['powerPerformance'].toFixed(2))
+                $pp = data['gpuValue'] / 70 * 100
+                $('.p_gpuVal').css('width', `${$pp}%`)
+                $('.p_gpuLabel').text(data['gpuValue'].toFixed(2))
+                $('.card_price span').text(data['price'].toFixed(2))
+                console.log(data)
+                $('.showCardContainer').toggle()
+            });
+        } else {
+            alert('Fill Mandory Values')
+        }
+    });
+    $('.close i').click(function () {
+        $('.showCardContainer').toggle()
+    })
+</script>
+</body>
+</html>
